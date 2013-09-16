@@ -1,0 +1,2 @@
+module ParkingRegistrationsHelper
+end

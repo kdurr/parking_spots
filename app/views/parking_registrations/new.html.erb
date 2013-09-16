@@ -1,0 +1,22 @@
+<%= form_for @parking_registration do |f| %>
+<h3>Please fill out the form below to register your parking spot</h3>
+  <div>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+  <div>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :spot_number %>
+    <%= f.select :spot_number, ParkingRegistration.spots, include_blank: true %>
+  </div>
+
+   <%= f.submit 'Register' %>
+
+  <%- end -%>
