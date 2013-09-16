@@ -15,4 +15,9 @@ class ParkingRegistration < ActiveRecord::Base
   def self.spots
     (1..60).to_a
   end
+
+  def park
+    self.day_of = Date.today
+    save
+  end
 end

@@ -21,4 +21,12 @@ describe '.spots' do
   it 'includes numbers 1 to 60' do
     expect(ParkingRegistration.spots).to eql((1..60).to_a)
   end
+
+  describe 'parking' do
+    it 'parks the car for today' do
+      registration = FactoryGirl.build(:parking_registration, day_of: nil)
+      expect(registration.park).to eql(true)
+      expect(registration.day_of).to eql(Date.today)
+    end
+  end
 end
