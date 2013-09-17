@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'User registers a parking spot', %Q{
+feature 'Parker registers a parking spot', %Q{
   As a parker
   I want to register my spot with my name
   So that the parking company can identify my car

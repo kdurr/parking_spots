@@ -7,8 +7,12 @@ class ParkingRegistration < ActiveRecord::Base
   validates_format_of :email,
     with: /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i
 
+  # validates :spot_number, :uniqueness => true
+
+  validates_uniqueness_of :spot_number,
+    scope: :day_of
+
   validates_numericality_of :spot_number,
-    only_integer: true,
     greater_than_or_equal_to: 1,
     less_than_or_equal_to: 60
 
@@ -20,4 +24,16 @@ class ParkingRegistration < ActiveRecord::Base
     self.day_of = Date.today
     save
   end
+
+  # def vacant
+  #   # return true unless self.spot_number.nil?
+  #   ParkingRegistration.pluck(:spot_number).each do |spot|
+  #     if self.spot_number == spot
+  #       return false
+  #     else
+  #       return true
+  #     end
+  #   end
+  # end
+
 end

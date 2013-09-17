@@ -8,7 +8,7 @@ class ParkingRegistrationsController < ApplicationController
     if @parking_registration.park
       flash[:notice] = 'Your spot has been registered'
       redirect_to '/'
-    else
+      else
       render :new
     end
   end

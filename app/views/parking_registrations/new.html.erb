@@ -1,15 +1,23 @@
+<%- if @parking_registration.errors.size > 0 -%>
+  <ul class="errors">
+    <%- @parking_registration.errors.full_messages.each do |message| -%>
+    <li><strong><%= message %></strong></li>
+    <%- end -%>
+  </ul>
+<%- end -%>
+
 <%= form_for @parking_registration do |f| %>
-<h3>Please fill out the form below to register your parking spot</h3>
+<h3><img src="http://www.lolzgif.com/wp-content/uploads/2012/11/cool-car-parking.gif"/ width='115' height='45'>Please fill out the form below to register your parking spot</h3>
   <div>
-    <%= f.label :first_name %>
+    <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
   </div>
   <div>
-    <%= f.label :last_name %>
+    <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
   <div>
-    <%= f.label :email %>
+    <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
   <div>
