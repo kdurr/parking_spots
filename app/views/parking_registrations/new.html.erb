@@ -6,8 +6,10 @@
   </ul>
 <%- end -%>
 
+
+<h3><img src="http://www.lolzgif.com/wp-content/uploads/2012/11/cool-car-parking.gif" width='115' height='45'/> Please fill out the form below to register your parking spot <img src="http://pics.lolme.org/2013/08/car-parking.gif" width='115' height='45'/></h3>
+
 <%= form_for @parking_registration do |f| %>
-<h3><img src="http://www.lolzgif.com/wp-content/uploads/2012/11/cool-car-parking.gif" width='115' height='45'/>Please fill out the form below to register your parking spot<img src="http://pics.lolme.org/2013/08/car-parking.gif" width='115' height='45'/></h3>
   <div>
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
@@ -21,7 +23,7 @@
     <%= f.text_field :email %>
   </div>
   <div>
-    <%= f.label :spot_number %>
+    <%= f.label :spot_number %><br>
     <%= f.select :spot_number, ParkingRegistration.spots, include_blank: true %>
   </div>
 
