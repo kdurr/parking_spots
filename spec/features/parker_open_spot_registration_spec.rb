@@ -23,6 +23,5 @@ feature 'Parker cannot register a spot already in use', %Q{
     expect(page).to_not have_content('Your spot has been registered')
     expect(page).to have_content("Spot number has already been taken")
     expect(ParkingRegistration.count).to eql(prev_count)
-    # expect(registration.vacant).to be_false
   end
 end

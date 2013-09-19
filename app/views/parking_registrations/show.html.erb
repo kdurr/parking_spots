@@ -1,0 +1,20 @@
+<h1>Parking Registration</h1>
+
+<%= @parking_registration.neighbor -%>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <td><%= @parking_registration.first_name %> <%= @parking_registration.last_name %></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td><%= @parking_registration.email %></td>
+  </tr>
+  <tr>
+    <th>Spot Number</th>
+    <td><%= @parking_registration.spot_number %></td>
+  </tr>
+</table>
+<p></p>
+<a href='/'>Back</a>

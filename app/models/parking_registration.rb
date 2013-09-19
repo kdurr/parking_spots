@@ -16,6 +16,7 @@ class ParkingRegistration < ActiveRecord::Base
     greater_than_or_equal_to: 1,
     less_than_or_equal_to: 60
 
+
   def self.spots
     (1..60).to_a
   end
@@ -25,15 +26,30 @@ class ParkingRegistration < ActiveRecord::Base
     save
   end
 
-  # def vacant
-  #   # return true unless self.spot_number.nil?
-  #   ParkingRegistration.pluck(:spot_number).each do |spot|
-  #     if self.spot_number == spot
-  #       return false
-  #     else
-  #       return true
-  #     end
-  #   end
-  # end
+  def neighbor
+    below_spot = ParkingRegistration.where('spot_number = ?', spot_number - 1).first
+    above_spot = ParkingRegistration.where('spot_number = ?', spot_number + 1).first
+    if below_spot.present? && above_spot.present?
+      "Your neighbors are #{below_spot.first_name} & #{above_spot.first_name}"
+    elsif below_spot.present?
+      "Your neighbor is #{below_spot.first_name}"
+    elsif above_spot.present?
+      "Your neighbor is #{above_spot.first_name}"
+    else
+
+      "Sad day, you have no neighbors"
+    end
+
+
+    # if ParkingRegistration.pluck(:spot_number).include?(above_spot)
+    #   above_neighbor = ParkingRegistration.where(spot_number: above_spot)
+    #   above_first = above_neighbor.pluck(:first_name).to_s
+    # end
+    # if ParkingRegistration.pluck(:spot_number).include?(below_spot)
+    #   below_neighbor = ParkingRegistration.where(spot_number: below_spot)
+    #   below_first = above_neighbor.pluck(:first_name).to_s
+    # end
+
+  end
 
 end
