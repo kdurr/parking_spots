@@ -39,17 +39,6 @@ class ParkingRegistration < ActiveRecord::Base
 
       "Sad day, you have no neighbors"
     end
-
-
-    # if ParkingRegistration.pluck(:spot_number).include?(above_spot)
-    #   above_neighbor = ParkingRegistration.where(spot_number: above_spot)
-    #   above_first = above_neighbor.pluck(:first_name).to_s
-    # end
-    # if ParkingRegistration.pluck(:spot_number).include?(below_spot)
-    #   below_neighbor = ParkingRegistration.where(spot_number: below_spot)
-    #   below_first = above_neighbor.pluck(:first_name).to_s
-    # end
-
   end
 
 end
