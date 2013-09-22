@@ -9,6 +9,12 @@
 
 <h3><img src="http://www.lolzgif.com/wp-content/uploads/2012/11/cool-car-parking.gif" width='115' height='45'/> Please fill out the form below to register your parking spot <img src="http://pics.lolme.org/2013/08/car-parking.gif" width='115' height='45'/></h3>
 
+<%- if @previous_registration.present? && @previous_registration.day_of == Date.yesterday -%>
+  <%= "Yesterday you parked in spot #{@previous_registration.spot_number}" %>
+<%- else -%>
+  <%= "You did not park here yesterday" %>
+<%- end -%>
+
 <%= form_for @parking_registration do |f| %>
   <div>
     <%= f.label :first_name %><br>

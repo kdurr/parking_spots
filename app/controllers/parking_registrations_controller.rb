@@ -5,6 +5,7 @@ class ParkingRegistrationsController < ApplicationController
 
     if @previous_registration.present?
       @parking_registration.email = @previous_registration.email
+      @parking_registration.spot_number = @previous_registration.spot_number
     end
   end
 
