@@ -36,9 +36,7 @@ class ParkingRegistration < ActiveRecord::Base
     elsif above_spot.present?
       "Your neighbor is #{above_spot.first_name}"
     else
-
       "Sad day, you have no neighbors"
     end
   end
-
 end
