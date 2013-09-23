@@ -1,0 +1,9 @@
+<h3>Previous Parking Activity</h3>
+<% email = @parking_registration.email %>
+<% history = ParkingRegistration.where(email: email).order('created_at DESC').pluck("spot_number", "created_at") %>
+<% history.each do |reg| %>
+  <p><%= "Spot number: #{reg[0]}" %><br>
+  <%= "Date & Time: #{reg[1]}" %></p>
+<% end %>
+
+<%= link_to 'Back', new_parking_registration_path %>
