@@ -11,8 +11,10 @@
 
 <%- if @previous_registration.present? && @previous_registration.day_of == Date.yesterday -%>
   <%= "Yesterday you parked in spot #{@previous_registration.spot_number}" %>
+  <br>
 <%- else -%>
   <%= "You did not park here yesterday" %>
+  <br>
 <%- end -%>
 
 <%= form_for @parking_registration do |f| %>
@@ -32,7 +34,14 @@
     <%= f.label :spot_number %><br>
     <%= f.select :spot_number, ParkingRegistration.spots, include_blank: true %>
   </div>
-
-   <%= f.submit 'Register' %>
+  <div>
+   <%= f.submit 'Register' %><br>
+  </div>
+  <br>
+  <div>
+<%- if @previous_registration.present? -%>
+  <%= link_to "Previous Parking Activity", previous_parking_activity_parking_registration_path(@previous_registration) %>
+<%- end -%>
+  </div>
 
   <%- end -%>
