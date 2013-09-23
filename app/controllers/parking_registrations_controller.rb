@@ -24,6 +24,10 @@ class ParkingRegistrationsController < ApplicationController
     @parking_registration = ParkingRegistration.find(params[:id])
   end
 
+  def previous_parking_activity
+    @parking_registration = ParkingRegistration.find(params[:id])
+  end
+
   protected
   def reg_params
     params.require(:parking_registration).permit(
